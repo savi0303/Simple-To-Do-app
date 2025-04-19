@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List Application</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="container mx-auto p-4 max-w-2xl">
+    <h1 class="text-3xl font-bold text-center mb-6">To-Do List</h1>
+
+    <!-- Task Input Form -->
+    <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+      <form id="taskForm" class="flex flex-col gap-4">
+        <input
+          type="text"
+          id="taskInput"
+          placeholder="Enter a new task"
+          class="p-2 border rounded-lg"
+          required
+        >
+        <select id="categoryInput" class="p-2 border rounded-lg">
+          <option value="Work">Work</option>
+          <option value="Personal">Personal</option>
+          <option value="Other">Other</option>
+        </select>
+        <input
+          type="date"
+          id="dueDateInput"
+          class="p-2 border rounded-lg"
+        >
+        <button
+          type="submit"
+          class="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600"
+        >
+          Add Task
+        </button>
+      </form>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="flex gap-4 mb-4">
+      <button
+        class="filter-btn bg-gray-200 p-2 rounded-lg flex-1"
+        data-category="All"
+      >
+        All
+      </button>
+      <button
+        class="filter-btn bg-gray-200 p-2 rounded-lg flex-1"
+        data-category="Work"
+      >
+        Work
+      </button>
+      <button
+        class="filter-btn bg-gray-200 p-2 rounded-lg flex-1"
+        data-category="Personal"
+      >
+        Personal
+      </button>
+      <button
+        class="filter-btn bg-gray-200 p-2 rounded-lg flex-1"
+        data-category="Other"
+      >
+        Other
+      </button>
+    </div>
+
+    <!-- Task List -->
+    <ul id="taskList" class="space-y-2"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
