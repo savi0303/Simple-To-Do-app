@@ -11,6 +11,118 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Background animations */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes floatCheckmark {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5) rotate(0deg);
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(100vw, -100vh) scale(1) rotate(360deg);
+  }
+}
+
+@keyframes floatNote {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(0deg);
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100vh) rotate(360deg);
+  }
+}
+
+/* Checkmark animations */
+body::before {
+  --checkmark-size: 20px;
+}
+
+body::before {
+  background:
+    /* Checkmark 1 */
+    linear-gradient(45deg, transparent 45%, rgba(255, 255, 255, 0.8) 45%, rgba(255, 255, 255, 0.8) 55%, transparent 55%),
+    linear-gradient(-45deg, transparent 45%, rgba(255, 255, 255, 0.8) 45%, rgba(255, 255, 255, 0.8) 55%, transparent 55%),
+    /* Checkmark 2 */
+    linear-gradient(45deg, transparent 45%, rgba(147, 197, 253, 0.8) 45%, rgba(147, 197, 253, 0.8) 55%, transparent 55%),
+    linear-gradient(-45deg, transparent 45%, rgba(147, 197, 253, 0.8) 45%, rgba(147, 197, 253, 0.8) 55%, transparent 55%),
+    /* Checkmark 3 */
+    linear-gradient(45deg, transparent 45%, rgba(96, 165, 250, 0.8) 45%, rgba(96, 165, 250, 0.8) 55%, transparent 55%),
+    linear-gradient(-45deg, transparent 45%, rgba(96, 165, 250, 0.8) 45%, rgba(96, 165, 250, 0.8) 55%, transparent 55%);
+  background-size:
+    var(--checkmark-size) var(--checkmark-size),
+    var(--checkmark-size) var(--checkmark-size),
+    var(--checkmark-size) var(--checkmark-size),
+    var(--checkmark-size) var(--checkmark-size),
+    var(--checkmark-size) var(--checkmark-size),
+    var(--checkmark-size) var(--checkmark-size);
+  background-position:
+    10% 80%,
+    10% 80%,
+    30% 20%,
+    30% 20%,
+    70% 60%,
+    70% 60%;
+  background-repeat: no-repeat;
+  animation:
+    floatCheckmark 15s infinite linear,
+    floatCheckmark 20s infinite 5s linear,
+    floatCheckmark 18s infinite 10s linear;
+}
+
+/* Paper note animations */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  --note-size: 30px;
+  background:
+    /* Note 1 */
+    linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+    /* Note 2 */
+    linear-gradient(rgba(147, 197, 253, 0.4), rgba(147, 197, 253, 0.4)),
+    /* Note 3 */
+    linear-gradient(rgba(255, 245, 158, 0.4), rgba(255, 245, 158, 0.4));
+  background-size:
+    var(--note-size) var(--note-size),
+    var(--note-size) var(--note-size),
+    var(--note-size) var(--note-size);
+  background-position:
+    20% 90%,
+    50% 70%,
+    80% 30%;
+  background-repeat: no-repeat;
+  animation:
+    floatNote 12s infinite linear,
+    floatNote 16s infinite 4s linear,
+    floatNote 14s infinite 8s linear;
 }
 
 /* Container */
