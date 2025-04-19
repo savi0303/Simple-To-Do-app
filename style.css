@@ -298,6 +298,26 @@ button {
   transform: scale(1.06);
 }
 
+footer {
+    color: whitesmoke;
+    position: relative;
+    top: 5px;
+    bottom: auto;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    transition: color 0.3s ease;
+}
+
+footer a {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
 /* Animations */
 @keyframes fadeIn {
   from {
